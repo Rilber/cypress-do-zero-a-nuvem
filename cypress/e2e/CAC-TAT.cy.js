@@ -7,24 +7,28 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       })
 
     it('preenche os campos obrigatórios e envia o formulário', () => {
+      cy.clock()  
       const longText = Cypress._.repeat('Teste campo como podemos ajudar. ', 40)
       cy.get('#firstName').type('Name')
       cy.get('#lastName').type('Last Name')
       cy.get('#email').type('useremail@email.com')
       cy.get('#open-text-area').type(longText, { delay: 0 })
       cy.contains('button', 'Enviar').click()
-
       cy.get('.success').should('be.visible') 
+      cy.tick(3000)
+      cy.get('.success').should('not.be.visible')
     })
 
     it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
+      cy.clock()
       cy.get('#firstName').type('Name')
       cy.get('#lastName').type('Last Name')
       cy.get('#email').type('useremail@email,com')
       cy.get('#open-text-area').type('Teste campo como podemos ajudar.', { delay: 0 })
       cy.contains('button', 'Enviar').click()
-
       cy.get('.error').should('be.visible')
+      cy.tick(3000)
+      cy.get('.error').should('not.be.visible')
     })  
 
     it('campo telefone continua vazio quando preenchido com valor não numérico', () => {
@@ -34,14 +38,16 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
 
     it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+      cy.clock()
       cy.get('#firstName').type('Name')
       cy.get('#lastName').type('Last Name')
       cy.get('#email').type('useremail@email.com')
       cy.get('#phone-checkbox').check()
       cy.get('#open-text-area').type('Teste campo como podemos ajudar.', { delay: 0 })
       cy.contains('button', 'Enviar').click()
-
       cy.get('.error').should('be.visible')
+      cy.tick(3000)
+      cy.get('.error').should('not.be.visible')
     })  
 
     it('preenche e limpa os campos nome, sobrenome, email e telefone', () => {
@@ -68,19 +74,19 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
 
     it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
+      cy.clock()
       cy.contains('button', 'Enviar').click()
-
       cy.get('.error').should('be.visible')
+      cy.tick(3000)
+      cy.get('.error').should('not.be.visible')
     })
 
     it('envia o formuário com sucesso usando um comando customizado', () => {
-      const data = {
-        firstName: 'Name',
-        lastName: 'Last Name',
-        email: 'user@email.com',
-        openTextArea: Cypress._.repeat('TEST ', 40)
-      }
+      cy.clock()
       cy.fillMandatoryFieldsAndSubmit()  
+      cy.get('.success').should('be.visible')
+      cy.tick(3000)
+      cy.get('.success').should('not.be.visible')
   })
 
   it('seleciona um produto (YouTube) por seu texto', () => {
