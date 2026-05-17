@@ -1,28 +1,96 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+﻿## 🌲 Cypress - From Zero to the Cloud ☁️
 
-👋 Seja bem-vindo(a)!
+Sample project developed during the **"Cypress: From Zero to the Cloud"** course from the **Talking About Testing** online school.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+This project demonstrates automated testing using Cypress, supporting both **desktop** and **mobile** viewports.
 
-## O que você vai aprender?
+---
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+## 📋 Prerequisites
 
-## Vamos começar?
+Before running this project, make sure the following tools are installed on your machine:
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+- Node.js
+- npm
+- Git
 
-___
+Versions used during development:
 
-Este é um curso da **Escola Talking About Testing**.
+| Tool | Version |
+|--------|----------|
+| Git | 2.54.0|
+| Node.js | v22.22.3 |
+| npm | 10.9.8 |
+
+> Recommended: Use these versions or newer for better compatibility.
+
+---
+
+## 🚀 Installation
+
+Run ```npm install ``` (or ```npm i``` for the short version) to intsall the dev dependencies.
+
+## 🧪 Running Tests
+
+This project supports test execution in both **Desktop** and **Mobile** environments.
+
+### 🖥 Desktop Mode
+
+Run tests in headless mode:
+
+```bash
+npm test
+```
+
+or:
+
+```bash
+npm t
+```
+
+Open Cypress Test Runner:
+
+```bash
+npm run cy:open
+```
+
+---
+
+### 📱 Mobile Mode
+
+Run tests in headless mode with a mobile viewport:
+
+```bash
+npm run cy:mobile
+```
+
+Open Cypress Test Runner using mobile configuration:
+
+```bash
+npm run cy:open:mobile
+```
+
+---
+
+## 📂 Project Structure
+
+```bash
+├── cypress/
+│   ├── e2e/           # Test files
+│   ├── fixtures/      # Test data
+│   ├── support/       # Custom commands and configurations
+│
+├── package.json
+├── cypress.config.js
+└── README.md
+```
+
+---
+
+## 📚 About
+
+This repository was created for learning purposes and serves as a practical example of Cypress test automation following best practices.
+
+---
+
+Made with ❤️ using Cypress
